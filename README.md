@@ -15,4 +15,4 @@ A personal project.
 
 ## Screenshots
 
-![App Screenshot](https://imgtree.co/i/wLzMnz3u)
+<img width="1857" height="307" alt="image" src="https://github.com/user-attachments/assets/ecdf66ce-b693-42e5-b041-9297bf6f6402" />
