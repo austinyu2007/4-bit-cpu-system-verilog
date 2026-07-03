@@ -1,19 +1,20 @@
 
 # 4-bit-cpu-systemverilog
 
-A personal project.
-
-4-bit CPU with ALU, outside RAM, testbench, and custom ISA. CPU uses Fetch-Decode-Execute cycle. This project has preset memory into the CPU and programmed the instructions to iterate through the Fibonacci sequence three times, but the instructions and memory can be fully altered.
+A 4-bit CPU built from scratch with a custom ISA, FSM-based Fetch-Decode-Execute cycle, and external RAM module. Programmed to calculate the Fibonacci sequence as a demonstration of full CPU functionality including branching, memory operations, and arithmetic.
 
 All code is in the src folder, and the testbench output for my example Fibonacci sequece program is given in result.txt
 ## Features
 
-- 4 bit custom ISA
-- Fetch-Decode-Execute cycle using FSM
-- ALU, LOAD/STORE, MOV, and JMP capabilities
-- Hardcoded program in CPU calculates the Fibonacci sequence
-- Comprehenshive testbench, waveforms, and output data for debugging
-
+- Custom 16-operation ISA with arithmetic, logic, LOAD/STORE, MOV, and JMP branching
+- FSM-based Fetch-Decode-Execute cycle
+- Integrated ALU, control logic, registers, and external RAM
+- Fibonacci sequence program
+- Testbench with waveform analysis and step-by-step execution tables
+## Project Structure
+/src        — SystemVerilog source files
+/testbench  — Testbench
+/docs       — Waveforms and execution table outputs
 
 ## Screenshots
 Here is the waveform for several important signals in the CPU.
@@ -21,3 +22,7 @@ Here is the waveform for several important signals in the CPU.
 ![Waveform](https://github.com/austinyu2007/4-bit-cpu-system-verilog/blob/main/docs/waveform.png?raw=true)
 
 Note that the output tables are inside the docs folder. It lists important step-by-step data such as command, results, and register info.
+
+## Tools Used
+- Icarus Verilog
+- GTKWave for waveform
