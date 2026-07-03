@@ -1,3 +1,5 @@
+`timescale 1ns/1ps
+
 module alu
   (
     input logic [3:0] data1, //First input
