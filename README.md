@@ -18,4 +18,4 @@ All code is in the src folder, and the testbench output for my example Fibonacci
 ## Screenshots
 Here is the waveform for several important signals in the CPU.
 
-![Waveform] (docs/waveform.png)
+![Waveform] ([docs/waveform.png](https://github.com/austinyu2007/4-bit-cpu-system-verilog/blob/main/docs/waveform.png?raw=true))
