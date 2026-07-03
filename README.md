@@ -18,4 +18,4 @@ All code is in the src folder, and the testbench output for my example Fibonacci
 ## Screenshots
 Here is the waveform for several important signals in the CPU.
 
-<img width="1857" height="307" alt="image" src="https://github.com/user-attachments/assets/ecdf66ce-b693-42e5-b041-9297bf6f6402" />
+[Waveform] (docs/waveform.png)
