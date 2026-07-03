@@ -19,3 +19,5 @@ All code is in the src folder, and the testbench output for my example Fibonacci
 Here is the waveform for several important signals in the CPU.
 
 ![Waveform](https://github.com/austinyu2007/4-bit-cpu-system-verilog/blob/main/docs/waveform.png?raw=true)
+
+Note that the output tables are inside the docs folder. It lists important step-by-step data such as command, results, and register info.
