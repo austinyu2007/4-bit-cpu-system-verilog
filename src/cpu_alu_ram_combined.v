@@ -99,7 +99,7 @@ module cpu
   logic [3:0] ram_out;
   logic [3:0] jmp_counter;
     
-  logic write_enable
+  logic write_enable;
   
   //Instantiate the alu module
   
