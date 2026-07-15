@@ -108,7 +108,7 @@ module test
   
   
   initial begin
-    #800; //End simulation after 800 ticks
+    #450; //End simulation after 450 ticks
     $display("\n\n\n");
     $display("The following test output is of the following format:");
     $display("");
