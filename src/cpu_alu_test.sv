@@ -151,7 +151,7 @@ module cpu
   logic halt;
   logic [7:0] pc; //Program counter
   logic [1:0] state;
-  logic [15:0] instructions [0:15]; //Each of the 17 instruction will follow the format of opcode, destination reg, reg1, reg2. Note that for the purposes of this demo, only 9 instructions will be used.
+  logic [15:0] instructions [0:15]; //Each of the 16 instruction will follow the format of opcode, destination reg, reg1, reg2. Note that for the purposes of this demo, only 9 instructions will be used.
   logic [15:0] instr;
   logic [3:0] regs [0:15]; //16 pieces of 4 bit memory
   logic [3:0] opcode, op_reg1, op_reg2, op_dest; //Instruction sections
