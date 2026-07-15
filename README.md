@@ -1,25 +1,25 @@
 # 4-bit-cpu-systemverilog
 
-A custom 4-bit CPU implemented in SystemVerilog, featuring a 16-opcode instruction set, FSM-based control, and integrated ALU/RAM modules — verified through two independent test programs in simulation.
+A custom 4-bit CPU implemented in SystemVerilog with a 16-opcode instruction set, FSM Fetch-Decode-Execute_store cycle, and integrated ALU/RAM/Seven Segment Display modules.
 
 ## Tools Used
 - Icarus Verilog
 - GTKWave for waveform
 
 ## Overview
-This project implements a simple but complete CPU architecture from scratch, including:
+This project implements a programmable CPU architecture from scratch, including:
 
 - A 16-opcode ISA: 11 ALU operations (ADD, SUB, AND, OR, XOR, NOT, NAND, NOR, left-shift, right-shift, INC) plus 5 control/memory instructions (MOV, JMP, LOAD, STORE, HALT)
 - A fetch-decode-execute FSM controlling instruction sequencing
-- An integrated ALU (combinational logic module)
-- An integrated RAM module (16 x 4-bit memory) for LOAD/STORE operations
+- An integrated ALU
+- An integrated RAM module (16 x 4-bit memory) for LOAD/STORE operations (note that this much memory is quite overkill for the small programs that I wrote)
 - A seven-segment display driver module (ssd), included for future physical hardware deployment (see Future Work)
 
 ## Architecture
-- CPU: Top-level FSM: fetch, decode, execute cycle; instantiates ALU and RAM
-- ALU: Combinational 4-bit ALU supporting 11 operations, selected via opcode
+- CPU: FSM for fetch-decode-execute-store cycle; includes pc and instruction register; instantiates ALU and RAM
+- ALU: Combinational 4-bit ALU supporting 11 operations, selected via opcode from the CPU
 - RAM: 16x4-bit memory with synchronous write, combinational read
-- SSD: Decodes a 4-bit value into dual seven-segment display outputs
+- SSD: Decodes a 4-bit value into two seven-segment display outputs (one for tens place and one for ones place)
 
 ## Instruction/Opcodes
 ```
