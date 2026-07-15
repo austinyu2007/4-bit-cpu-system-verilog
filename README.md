@@ -1,6 +1,6 @@
 # 4-bit-cpu-systemverilog
 
-A custom 4-bit CPU implemented in SystemVerilog with a 16-opcode instruction set, FSM Fetch-Decode-Execute_store cycle, and integrated ALU/RAM/Seven Segment Display modules.
+A custom 4-bit CPU implemented in SystemVerilog with a 16-opcode instruction set, FSM Fetch-Decode-Execute_store cycle, and integrated ALU/RAM/Seven Segment Display modules. Painstakingly built from the ground up.
 
 ## Tools Used
 - Icarus Verilog
@@ -46,16 +46,17 @@ This project implements a programmable CPU architecture from scratch, including:
 ```
 
 ## Verification
-The CPU was verified using a shared testbench (testbench/testbench.sv) across two separate design variants, each preloading a different instruction program:
-1. ALU Coverage Test (src/cpu_alu_test.sv) — loads all 11 ALU operations plus HALT into instruction memory, verifying every ALU opcode executes and writes back the correct result.
-2. Fibonacci Sequence Program (src/cpu_fibonacci.sv) — a 9-instruction program using LOAD (seed values from RAM), ADD, MOV (register shifting), JMP (looping), STORE (writing the final result back to RAM), and HALT — verifying control flow, looping, and memory read/write behavior together.
-Together, these two programs exercise all 16 opcodes.
-The testbench automatically decodes each instruction into a readable mnemonic (e.g. ADD, JMP, LOAD) and logs the destination register, source register values, and result for every instruction executed, printed in a formatted table at the end of simulation. Sample output and waveform captures for both runs are included in docs/ and waveforms/.
+The CPU was verified using a shared testbench (testbench/testbench.sv) across two separate different designs. Most of the design was similar, with the exception of the program/instruction register to test operations:
+1. ALU Coverage Test (src/cpu_alu_test.sv) — loads all 11 ALU operations plus HALT into instruction memory. Verifies ALU and Halt instructions.
+2. Fibonacci Sequence Program (src/cpu_fibonacci.sv) — a 9-instruction program using LOAD (seed values from RAM), ADD, MOV (register shifting), JMP (looping), STORE (writing the final result back to RAM), and HALT. Verifies memory instructions and shows that the CPU can run somewhat complicated programs.
+
+Together, these two programs use (and verify) all 16 opcodes.
+The testbench automatically decodes each instruction into English (e.g. ADD, JMP, LOAD) and logs the destination register, source register values, and result for every instruction executed, printed in a formatted table at the end of simulation. Sample output and waveform captures for both runs are included in docs/ and waveforms/.
 
 ## How to Run
-1. Compile either src/cpu_alu_test.sv or src/cpu_fibonacci.sv (they differ only in preloaded instruction memory) along with testbench/testbench.sv in your SystemVerilog simulator (e.g. Icarus Verilog, ModelSim, Vivado Simulator)
-2. Run the simulation — output is printed via $display in two tables: instruction stream, then per-instruction results
-3. Waveforms are viewable in waveforms/ (captured via GTKWave)
+1. Compile either src/cpu_alu_test.sv or src/cpu_fibonacci.sv (they differ only in instruction register) along with testbench/testbench.sv in SystemVerilog simulation
+2. Run the simulation
+3. View results. Waveforms are viewable in waveforms/ (captured via GTKWave). The output also gives two separate tables as specified in Veriication. Also viewable in docs/.
 
 ## Future Work
 - Porting the design to a Zynq-7000 FPGA board for real hardware execution, using the existing seven-segment display module for physical output
