@@ -22,6 +22,7 @@ This project implements a simple but complete CPU architecture from scratch, inc
 - SSD: Decodes a 4-bit value into dual seven-segment display outputs
 
 ## Instruction/Opcodes
+```
 +--------+-----------+
 | OPCODE | OPERATION |
 +--------+-----------+
@@ -42,6 +43,7 @@ This project implements a simple but complete CPU architecture from scratch, inc
 |  1110  |   LOAD    |
 |  1111  |   STORE   |
 +--------+-----------+
+```
 
 ## Verification
 The CPU was verified using a shared testbench (testbench/testbench.sv) across two separate design variants, each preloading a different instruction program:
