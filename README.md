@@ -16,7 +16,7 @@ This project implements a programmable CPU architecture from scratch, including:
 - A seven-segment display driver module (ssd), included for future physical hardware deployment (see Future Work)
 
 ## Architecture
-- CPU: FSM for fetch-decode-execute-store cycle; includes pc and instruction register; instantiates ALU and RAM
+- CPU: FSM for fetch-decode-execute-store cycle; includes pc and instruction memory; instantiates ALU and RAM
 - ALU: Combinational 4-bit ALU supporting 11 operations, selected via opcode from the CPU
 - RAM: 16x4-bit memory with synchronous write, combinational read
 - SSD: Decodes a 4-bit value into two seven-segment display outputs (one for tens place and one for ones place)
@@ -46,7 +46,7 @@ This project implements a programmable CPU architecture from scratch, including:
 ```
 
 ## Verification
-The CPU was verified using a shared testbench (testbench/testbench.sv) across two separate different designs. Most of the design was similar, with the exception of the program/instruction register to test operations:
+The CPU was verified using a shared testbench (testbench/testbench.sv) across two separate different designs. Most of the design was similar, with the exception of the program/instruction memory to test operations:
 1. ALU Coverage Test (src/cpu_alu_test.sv) — loads all 11 ALU operations plus HALT into instruction memory. Verifies ALU and Halt instructions.
 2. Fibonacci Sequence Program (src/cpu_fibonacci.sv) — a 9-instruction program using LOAD (seed values from RAM), ADD, MOV (register shifting), JMP (looping), STORE (writing the final result back to RAM), and HALT. Verifies memory instructions and shows that the CPU can run somewhat complicated programs.
 
