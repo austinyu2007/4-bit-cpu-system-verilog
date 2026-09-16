@@ -1,5 +1,3 @@
-`timescale 1ns/1ps
-
 module alu
   (
     input logic [3:0] data1, //First input
@@ -100,30 +98,31 @@ module two_seven_segments
     tens = alu_result / 10;
     ones = alu_result % 10;
     
+    //note that the ssd that I used is common anode
     case (tens)
-      4'b0000: begin seg1_a = 1; seg1_b = 1; seg1_c = 1; seg1_d = 1; seg1_e = 1; seg1_f = 1; seg1_g = 0; end //0
-      4'b0001: begin seg1_a = 0; seg1_b = 1; seg1_c = 1; seg1_d = 0; seg1_e = 0; seg1_f = 0; seg1_g = 0; end //1
-      4'b0010: begin seg1_a = 1; seg1_b = 1; seg1_c = 0; seg1_d = 1; seg1_e = 1; seg1_f = 0; seg1_g = 1; end //2
-      4'b0011: begin seg1_a = 1; seg1_b = 1; seg1_c = 1; seg1_d = 1; seg1_e = 0; seg1_f = 0; seg1_g = 1; end //3
-      4'b0100: begin seg1_a = 0; seg1_b = 1; seg1_c = 0; seg1_d = 0; seg1_e = 1; seg1_f = 1; seg1_g = 1; end //4
-      4'b0101: begin seg1_a = 1; seg1_b = 0; seg1_c = 1; seg1_d = 1; seg1_e = 0; seg1_f = 1; seg1_g = 1; end //5
-      4'b0110: begin seg1_a = 1; seg1_b = 0; seg1_c = 1; seg1_d = 1; seg1_e = 1; seg1_f = 1; seg1_g = 1; end //6
-      4'b0111: begin seg1_a = 1; seg1_b = 1; seg1_c = 1; seg1_d = 1; seg1_e = 0; seg1_f = 0; seg1_g = 0; end //7
-      4'b1000: begin seg1_a = 1; seg1_b = 1; seg1_c = 1; seg1_d = 1; seg1_e = 1; seg1_f = 1; seg1_g = 1; end //8
-      4'b1001: begin seg1_a = 1; seg1_b = 1; seg1_c = 1; seg1_d = 1; seg1_e = 0; seg1_f = 1; seg1_g = 1; end //9
+      4'b0000: begin seg1_a = 0; seg1_b = 0; seg1_c = 0; seg1_d = 0; seg1_e = 0; seg1_f = 0; seg1_g = 1; end //0
+      4'b0001: begin seg1_a = 1; seg1_b = 0; seg1_c = 0; seg1_d = 1; seg1_e = 1; seg1_f = 1; seg1_g = 1; end //1
+      4'b0010: begin seg1_a = 0; seg1_b = 0; seg1_c = 1; seg1_d = 0; seg1_e = 0; seg1_f = 1; seg1_g = 0; end //2
+      4'b0011: begin seg1_a = 0; seg1_b = 0; seg1_c = 0; seg1_d = 0; seg1_e = 1; seg1_f = 1; seg1_g = 0; end //3
+      4'b0100: begin seg1_a = 1; seg1_b = 0; seg1_c = 0; seg1_d = 1; seg1_e = 1; seg1_f = 0; seg1_g = 0; end //4
+      4'b0101: begin seg1_a = 0; seg1_b = 1; seg1_c = 0; seg1_d = 0; seg1_e = 1; seg1_f = 0; seg1_g = 0; end //5
+      4'b0110: begin seg1_a = 0; seg1_b = 1; seg1_c = 0; seg1_d = 0; seg1_e = 0; seg1_f = 0; seg1_g = 0; end //6
+      4'b0111: begin seg1_a = 0; seg1_b = 0; seg1_c = 0; seg1_d = 1; seg1_e = 1; seg1_f = 1; seg1_g = 1; end //7
+      4'b1000: begin seg1_a = 0; seg1_b = 0; seg1_c = 0; seg1_d = 0; seg1_e = 0; seg1_f = 0; seg1_g = 0; end //8
+      4'b1001: begin seg1_a = 0; seg1_b = 0; seg1_c = 0; seg1_d = 0; seg1_e = 1; seg1_f = 0; seg1_g = 0; end //9
     endcase
       
     case (ones)
-      4'b0000: begin seg0_a = 1; seg0_b = 1; seg0_c = 1; seg0_d = 1; seg0_e = 1; seg0_f = 1; seg0_g = 0; end //0
-      4'b0001: begin seg0_a = 0; seg0_b = 1; seg0_c = 1; seg0_d = 0; seg0_e = 0; seg0_f = 0; seg0_g = 0; end //1
-      4'b0010: begin seg0_a = 1; seg0_b = 1; seg0_c = 0; seg0_d = 1; seg0_e = 1; seg0_f = 0; seg0_g = 1; end //2
-      4'b0011: begin seg0_a = 1; seg0_b = 1; seg0_c = 1; seg0_d = 1; seg0_e = 0; seg0_f = 0; seg0_g = 1; end //3
-      4'b0100: begin seg0_a = 0; seg0_b = 1; seg0_c = 0; seg0_d = 0; seg0_e = 1; seg0_f = 1; seg0_g = 1; end //4
-      4'b0101: begin seg0_a = 1; seg0_b = 0; seg0_c = 1; seg0_d = 1; seg0_e = 0; seg0_f = 1; seg0_g = 1; end //5
-      4'b0110: begin seg0_a = 1; seg0_b = 0; seg0_c = 1; seg0_d = 1; seg0_e = 1; seg0_f = 1; seg0_g = 1; end //6
-      4'b0111: begin seg0_a = 1; seg0_b = 1; seg0_c = 1; seg0_d = 1; seg0_e = 0; seg0_f = 0; seg0_g = 0; end //7
-      4'b1000: begin seg0_a = 1; seg0_b = 1; seg0_c = 1; seg0_d = 1; seg0_e = 1; seg0_f = 1; seg0_g = 1; end //8
-      4'b1001: begin seg0_a = 1; seg0_b = 1; seg0_c = 1; seg0_d = 1; seg0_e = 0; seg0_f = 1; seg0_g = 1; end //9
+      4'b0000: begin seg0_a = 0; seg0_b = 0; seg0_c = 0; seg0_d = 0; seg0_e = 0; seg0_f = 0; seg0_g = 1; end //0
+      4'b0001: begin seg0_a = 1; seg0_b = 0; seg0_c = 0; seg0_d = 1; seg0_e = 1; seg0_f = 1; seg0_g = 1; end //1
+      4'b0010: begin seg0_a = 0; seg0_b = 0; seg0_c = 1; seg0_d = 0; seg0_e = 0; seg0_f = 1; seg0_g = 0; end //2
+      4'b0011: begin seg0_a = 0; seg0_b = 0; seg0_c = 0; seg0_d = 0; seg0_e = 1; seg0_f = 1; seg0_g = 0; end //3
+      4'b0100: begin seg0_a = 1; seg0_b = 0; seg0_c = 0; seg0_d = 1; seg0_e = 1; seg0_f = 0; seg0_g = 0; end //4
+      4'b0101: begin seg0_a = 0; seg0_b = 1; seg0_c = 0; seg0_d = 0; seg0_e = 1; seg0_f = 0; seg0_g = 0; end //5
+      4'b0110: begin seg0_a = 0; seg0_b = 1; seg0_c = 0; seg0_d = 0; seg0_e = 0; seg0_f = 0; seg0_g = 0; end //6
+      4'b0111: begin seg0_a = 0; seg0_b = 0; seg0_c = 0; seg0_d = 1; seg0_e = 1; seg0_f = 1; seg0_g = 1; end //7
+      4'b1000: begin seg0_a = 0; seg0_b = 0; seg0_c = 0; seg0_d = 0; seg0_e = 0; seg0_f = 0; seg0_g = 0; end //8
+      4'b1001: begin seg0_a = 0; seg0_b = 0; seg0_c = 0; seg0_d = 0; seg0_e = 1; seg0_f = 0; seg0_g = 0; end //9
     endcase
   end
   
@@ -145,7 +144,8 @@ module cpu
     output logic [3:0] reg1_info,
     output logic [3:0] reg2_info,
     output logic [1:0] state_out,
-    output logic [7:0] pc_out
+    output logic [7:0] pc_out,
+    output logic [3:0] seven_segment_display_value
   );
   
   logic halt;
@@ -159,7 +159,6 @@ module cpu
   logic [3:0] reg1, reg2; //Information from reg1 and reg2
   logic [3:0] ram_out; //data from the ram into the CPU
   logic [3:0] jmp_counter; //how many times loop has jumped
-  logic [3:0] seven_segment_display_value; //note that only alu values will be displayed on SSD
   
   
   logic write_enable; //If the CPU can write data to the RAM
@@ -186,10 +185,6 @@ module cpu
     .data_out(ram_out)
   );
   
-  two_seven_segments ssd(
-    .alu_result(seven_segment_display_value)
-  );
-  
   initial begin
     
     instructions[0] = 16'b0000_1111_0000_0001; //ADD R0 AND R1
@@ -206,7 +201,7 @@ module cpu
     instructions[11] = 16'b1101_1111_0000_0001; //HALT
     
     //Randomly generated starting memory, note that most of these registers are currently useless because there aren't enough instructions for them
-    regs[0]  = 4'b1010;
+    regs[0]  = 4'b0000;
     regs[1]  = 4'b0001;
     regs[2]  = 4'b0010;
     regs[3]  = 4'b0011;
@@ -225,11 +220,11 @@ module cpu
   end
     
   
-  always_ff @(posedge clk or posedge reset) begin
+  always_ff @(posedge clk or negedge reset) begin
     
     //If the CPU needs to reset
         
-    if (reset) begin
+    if (reset == 'b0) begin
       pc 			<= '0;
       state 		<= '0;
       instr			<= '0;
@@ -243,6 +238,7 @@ module cpu
       halt			<= '0;
       write_enable 	<= '0;
       jmp_counter	<= '0;
+      seven_segment_display_value <= '0;
     end
     //END RESET PROCEDURE
     
@@ -251,7 +247,7 @@ module cpu
       case (state)
         2'b00: //FETCH
           begin
-            write_enable = 1'b0;
+            write_enable <= 1'b0;
             instr <= instructions[pc];
             pc <= pc + 1;
             pc_out <= pc;
@@ -345,4 +341,79 @@ module cpu
       reg2_info <= reg2;
     end
   end
+endmodule
+
+
+
+module top
+  (
+    input logic clk,
+    input logic reset,
+    
+    // First seven-segment display (for ones)
+    output logic seg0_a,
+    output logic seg0_b,
+    output logic seg0_c,
+    output logic seg0_d,
+    output logic seg0_e,
+    output logic seg0_f,
+    output logic seg0_g,
+
+    // Second seven-segment display (for tens)
+    output logic seg1_a,
+    output logic seg1_b,
+    output logic seg1_c,
+    output logic seg1_d,
+    output logic seg1_e,
+    output logic seg1_f,
+    output logic seg1_g
+  );
+  
+  logic [3:0] ssdv; //input for the seven segment display
+  logic [24:0] clk_count;
+  logic clock_real;
+  parameter clk_divide = 10000000;
+  
+  always @(posedge clk or negedge reset) begin
+    if (reset == 1'b0) begin
+        clk_count <= 'b0;
+    end else begin        
+        if (clk_count >= clk_divide - 1) begin
+          clock_real <= 1'b1;
+          clk_count <= 'b0;
+        end else begin
+          clock_real <= 1'b0;
+          clk_count <= clk_count + 1;
+        end
+    end
+  end
+  
+  cpu scpu
+  (
+    .clk(clock_real),
+    .reset(reset),
+    
+    .seven_segment_display_value(ssdv)
+  );
+    
+  two_seven_segments tss
+  (
+    .alu_result(ssdv),
+    
+    .seg0_a(seg0_a),
+    .seg0_b(seg0_b),
+    .seg0_c(seg0_c),
+    .seg0_d(seg0_d),
+    .seg0_e(seg0_e),
+    .seg0_f(seg0_f),
+    .seg0_g(seg0_g),
+
+    .seg1_a(seg1_a),
+    .seg1_b(seg1_b),
+    .seg1_c(seg1_c),
+    .seg1_d(seg1_d),
+    .seg1_e(seg1_e),
+    .seg1_f(seg1_f),
+    .seg1_g(seg1_g)
+  );
 endmodule
