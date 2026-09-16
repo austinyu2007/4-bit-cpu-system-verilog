@@ -5,6 +5,7 @@ A custom 4-bit CPU implemented in SystemVerilog with a 16-opcode instruction set
 ## Tools Used
 - Icarus Verilog
 - GTKWave for waveform
+- Xilinx Vivado
 
 ## Overview
 This project implements a programmable CPU architecture from scratch, including:
@@ -13,7 +14,6 @@ This project implements a programmable CPU architecture from scratch, including:
 - A fetch-decode-execute FSM controlling instruction sequencing
 - An integrated ALU
 - An integrated RAM module (16 x 4-bit memory) for LOAD/STORE operations (note that this much memory is quite overkill for the small programs that I wrote)
-- A seven-segment display driver module (ssd), included for future physical hardware deployment (see Future Work)
 
 ## Architecture
 - CPU: FSM for fetch-decode-execute-store cycle; includes pc and instruction memory; instantiates ALU and RAM
@@ -56,7 +56,11 @@ The testbench automatically decodes each instruction into English (e.g. ADD, JMP
 ## How to Run
 1. Compile either src/cpu_alu_test.sv or src/cpu_fibonacci.sv (they differ only in instruction register) along with testbench/testbench.sv in SystemVerilog simulation
 2. Run the simulation
-3. View results. Waveforms are viewable in waveforms/ (captured via GTKWave). The output also gives two separate tables as specified in Veriication. Also viewable in docs/.
+3. View results. Waveforms are viewable in waveforms/ (captured via GTKWave). The output also gives two separate tables as specified in Verification. Also viewable in docs/.
+4. Open the files in Vivado and configure xdc file.
+    a. Mainstream boards, like the one from Xilinx, have their own master xdc files that you can use to figure out your pins. Unfortunately, I bought a cheap            Chinese knockoff Zynq-7020 board, so I had to reverse engineer the silkscreen and schematics from the manufacturer for the correct pins.
+5. Synthesize, implement, and generate/send bitstream.
+    a. I used a JTAG Programmer and cable connected to my board and computer to send the bitstream.
 
-## Future Work
-- Porting the design to a Zynq-7000 FPGA board for real hardware execution, using the existing seven-segment display module for physical output
+## Considerations
+My seven-segment display is common anode, so that might be different from yours. Overflow is handled by simply ignoring the MSB.
