@@ -66,5 +66,5 @@ The testbench automatically decodes each instruction into English (e.g. ADD, JMP
 My seven-segment display is common anode, so that might be different from yours. Overflow is handled by simply ignoring the MSB.
 
 ## Video
-Here is a video of the CPU with Fibonacci Program running on my board.
-![CPU Fibonacci Port](videos/CPU_Working_Port_Video_Doubly_Compressed.mp4)
+Here is a video of the CPU with Fibonacci Program running on my board. Sped up 2x and heavily compressed for file size reasons.
+![CPU Fibonacci Port](videos/CPU_Fibonacci_Port_Video_Hyper_Compressed.gif)
