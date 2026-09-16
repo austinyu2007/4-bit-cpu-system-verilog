@@ -51,7 +51,7 @@ The CPU was verified using a shared testbench (testbench/testbench.sv) across tw
 2. Fibonacci Sequence Program (src/cpu_fibonacci.sv) — a 9-instruction program using LOAD (seed values from RAM), ADD, MOV (register shifting), JMP (looping), STORE (writing the final result back to RAM), and HALT. Verifies memory instructions and shows that the CPU can run somewhat complicated programs.
 
 Together, these two programs use (and verify) all 16 opcodes.
-The testbench automatically decodes each instruction into English (e.g. ADD, JMP, LOAD) and logs the destination register, source register values, and result for every instruction executed, printed in a formatted table at the end of simulation. Sample output and waveform captures for both runs are included in docs/ and waveforms/.
+The testbench automatically decodes each instruction into English (e.g. ADD, JMP, LOAD) and logs the destination register, source register values, and result for every instruction executed, printed in a formatted table at the end of simulation. Sample output and waveform captures for both runs are included in docs/ and waveforms/. Note that the variable "ssdv" means the value printed on the seven segment displays (aka the ALU output)
 
 ## How to Run
 1. Compile either src/cpu_alu_test.sv or src/cpu_fibonacci.sv (they differ only in instruction register) along with testbench/testbench.sv in SystemVerilog simulation
@@ -64,3 +64,7 @@ The testbench automatically decodes each instruction into English (e.g. ADD, JMP
 
 ## Considerations
 My seven-segment display is common anode, so that might be different from yours. Overflow is handled by simply ignoring the MSB.
+
+## Video
+Here is a video of the CPU with Fibonacci Program running on my board.
+![CPU Fibonacci Port](videos/CPU_Working_Port_Video_Doubly_Compressed.mp4)
