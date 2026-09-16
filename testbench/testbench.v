@@ -39,26 +39,37 @@ module test
     .pc_out(cpu_pc)
   );
   
+  logic seg0_a;
+  
+
+  
   
   //Create waveforms all the signals inside the CPU, including pc, outputs, clk, and more
   initial begin
     $dumpfile("dump.vcd");
-    $dumpvars(0, sub_cpu);
-    
+    $dumpvars(0, sub_top);
   end
   
   //Set reset
   initial begin
-    reset = '1;
-    #10;
     reset = '0;
+    #10;
+    reset = '1;
   end
+  
+  top sub_top
+  (
+    .clk(clk),
+    .reset(reset),
+    
+    .seg0_a(seg0_a)
+  );
     
   //Initiate clock
   initial begin
     #10; //Wait 10 ticks for the reset to subside
     clk = '0;
-    forever #5 begin //Period of 10 ticks
+    forever #2 begin //Period of 10 ticks
       clk = ~clk;
     end
   end
@@ -108,7 +119,7 @@ module test
   
   
   initial begin
-    #1000; //End simulation after 1000 ticks
+    #2000; //End simulation after 2000 ticks. Also note that you can shorten this waiting period if you want less clutter and halt instructions at the end of your text output
     $display("\n\n\n");
     $display("The following test output is of the following format:");
     $display("");
